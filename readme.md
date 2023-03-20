@@ -1,4 +1,4 @@
-# Title: Narrative Engine - An AI-Powered Interactive Guide for Web Applications
+# Narrative Engine - An AI-Powered Interactive Guide for Web Applications
 
 ## Objective
 To develop a Narrative Engine that uses artificial intelligence to generate user-friendly narratives and provide guidance for users of web applications, while also offering the capability to perform tasks on behalf of the user upon request.
