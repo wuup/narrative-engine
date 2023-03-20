@@ -1,0 +1,80 @@
+[
+  {
+    "type": "click",
+    "element": "INPUT",
+    "details": "Clicked on tweet input box",
+    "timestamp": "2023-03-19T12:00:00.000Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": "H",
+    "timestamp": "2023-03-19T12:00:01.000Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": "e",
+    "timestamp": "2023-03-19T12:00:01.100Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": "l",
+    "timestamp": "2023-03-19T12:00:01.200Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": "l",
+    "timestamp": "2023-03-19T12:00:01.300Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": "o",
+    "timestamp": "2023-03-19T12:00:01.400Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": " ",
+    "timestamp": "2023-03-19T12:00:01.500Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": "w",
+    "timestamp": "2023-03-19T12:00:01.600Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": "o",
+    "timestamp": "2023-03-19T12:00:01.700Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": "r",
+    "timestamp": "2023-03-19T12:00:01.800Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": "l",
+    "timestamp": "2023-03-19T12:00:01.900Z"
+  },
+  {
+    "type": "keypress",
+    "element": "INPUT",
+    "key": "d",
+    "timestamp": "2023-03-19T12:00:02.000Z"
+  },
+  {
+    "type": "click",
+    "element": "BUTTON",
+    "details": "Clicked on send tweet button",
+    "timestamp": "2023-03-19T12:00:03.000Z"
+  }
+]

@@ -1,0 +1,12 @@
+The user started by clicking on the tweet input box at 12:00:00. They then typed the following message:
+
+H e l l o   w o r l d
+
+The user completed typing the message at 12:00:02. Finally, they clicked on the send tweet button at 12:00:03 to post the tweet.
+
+
+With a more advanced GPT-based language model, you could generate a more detailed and user-friendly narrative based on the dataset:
+
+
+The user began composing a tweet by clicking on the tweet input box at 12:00:00 PM. They typed the message "Hello world" with a consistent pace, taking approximately 2 seconds to complete. After finishing the message, the user clicked the send tweet button at 12:00:03 PM, successfully posting their tweet.
+In this enhanced narrative, the message is presented more clearly, and the timing information is provided in a more human-readable format. Integrating a GPT-based language model into your narrative engine would enable you to generate more sophisticated and user-friendly narratives from the collected data.

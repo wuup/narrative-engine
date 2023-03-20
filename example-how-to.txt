@@ -1,0 +1,7 @@
+To send a tweet, follow these steps:
+
+1. Click on the tweet input box to start composing your message.
+2. Type your message (e.g., "Hello world") in the input box.
+3. After you have finished typing your message, click the send tweet button to post your tweet.
+
+That's it! Your tweet will now be successfully posted.
