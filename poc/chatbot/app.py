@@ -7,11 +7,10 @@ from bson.json_util import dumps
 import json
 from pymongo import MongoClient
 from datetime import datetime
-
-
+from bson.json_util import loads
+import pymongo
 
 app = Flask(__name__, static_folder='static')
-
 
 # MongoDB client setup
 client = MongoClient()
@@ -31,6 +30,17 @@ conversation_history = [
         "content": "You are a helpful bot"
     }
 ]
+def fetch_user_actions():
+    interactions = mongo.db.interactions.find()
+    formatted_interactions = []
+
+    for interaction in interactions:
+        formatted_interaction = loads(dumps(interaction))
+        formatted_interaction['_id'] = str(formatted_interaction['_id'])
+        formatted_interactions.append(formatted_interaction)
+
+    return json.dumps(formatted_interactions)
+
 
 def count_characters(text):
     return len(text)
@@ -43,8 +53,49 @@ def truncate_conversation_history():
         total_characters -= count_characters(removed_message["content"])
 
 
+def get_user_interactions():
+    # Establish a connection to MongoDB
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+
+    # Access the "interactions" database and the "user_interactions" collection
+    db = client["interactions"]
+    col = db["user_interactions"]
+
+    # Find all documents in the collection
+    cursor = col.find()
+
+    # Create an empty list to store the documents
+    documents = []
+
+    # Append each document to the list
+    for document in cursor:
+        documents.append(document)
+
+    # Return the list of documents
+    return documents
+
 def get_gpt4_response(prompt):
     global conversation_history
+    print(conversation_history)
+    
+    if prompt.lower() == "get actions":
+        fetched_actions = get_user_interactions()
+        actions_string = ""
+        for action in fetched_actions:
+            timestamp = action.get('timestamp', 'unknown timestamp')
+            action_type = action.get('type', action.get('action', 'unknown type'))
+            element = action.get('element', 'unknown element')
+            
+            actions_string += f"{timestamp}: {action_type} - {element}"
+            if 'details' in action:
+                actions_string += f" ({action['details']})"
+            if 'key' in action:
+                actions_string += f" ({action['key']})"
+            actions_string += "\n"
+        conversation_history.append({"role": "assistant", "content": actions_string})
+        return actions_string
+
+    
     headers = {"Authorization": f"Bearer {API_KEY}"}
     conversation_history.append({"role": "user", "content": prompt})
     truncate_conversation_history()
@@ -73,10 +124,14 @@ def index():
 def message():
     user_input = request.form['input']
     response = get_gpt4_response(user_input)
+    
     if response.startswith("Error"):
         return jsonify({'response_type': 'error', 'response': response})
+    elif user_input.lower() == "get actions":
+        return jsonify({'response_type': 'actions', 'response': response})
     else:
         return jsonify({'response_type': 'success', 'response': response})
+
 
 # Store user interactions
 @app.route('/store_interaction', methods=['POST'])

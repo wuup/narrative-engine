@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Chatbot(GPT-4)</title>
+    <title>Narrative Engine(GPT-4)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -74,7 +74,7 @@
 </head>
 <body>
     <div class="container-fluid chat-container">
-        <h1 class="text-center mb-4">IntegrateBot(GPT-4)</h1>
+        <h1 class="text-center mb-4">Narrative Engine</h1>
         <div id="chatbox" class="bg-light p-3 my-3 border">
             <!-- Chat messages will appear here -->
         </div>
@@ -225,6 +225,17 @@ document.getElementById("submitButton").addEventListener("click", function() {
     console.log(data);
   });
 });
+
+// Add event listener for keypress event on input field
+document.getElementById("user-input").addEventListener("keypress", function(event) {
+    // If key pressed was Enter (key code 13)
+    if (event.keyCode === 13) {
+        event.preventDefault(); // prevent form submission
+        // Simulate a click on the submit button
+        document.getElementById("submitButton").click();
+    }
+});
+
 
 // Function to get interactions and generate narrative
 async function generateNarrative() {
