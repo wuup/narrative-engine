@@ -45,6 +45,7 @@ def fetch_user_actions():
 def count_characters(text):
     return len(text)
 
+# 
 def truncate_conversation_history():
     global conversation_history
     total_characters = sum([count_characters(msg["content"]) for msg in conversation_history])
@@ -118,7 +119,8 @@ def get_gpt4_response(prompt):
     data = {
         "model": "gpt-4",
         "messages": conversation_history,
-        "max_tokens": 2000,
+        "max_tokens": 3000,
+        "temperature": 0
     }
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=data)
     
